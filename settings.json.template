@@ -107,9 +107,14 @@
   // market settings
   //included markets: altmarkets, fides, bittrex, poloniex, yobit, bleutrade
   //default market is loaded by default and determines last price in header
+  // coingecko_coin and _exchange are case sensitive
+  // coingecko_coin: https://www.coingecko.com/api/documentations/v3#/coins/get_coins_list (id field)
+  // coingecko_exchange: https://api.coingecko.com/api/v3/simple/supported_vs_currencies
   "markets": {
     "coin": "JBS",
     "exchange": "BTC",
+    "coingecko_coin": "verus-coin",
+    "coingecko_exchange": "btc",
     "enabled": ["bittrex"],
     "ccex_key" : "Get-Your-Own-Key",
     "default": "bittrex"
