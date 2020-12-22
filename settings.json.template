@@ -7,6 +7,9 @@
   // name your instance!
   "title": "IQUIDUS",
 
+  // instance identifier for template
+  "identifier": "(your_id_here)",
+
   "address": "127.0.0.1:3001",
 
   // coin name
