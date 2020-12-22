@@ -81,14 +81,13 @@ block content
                         td #{settings.locale.new_coins}
                     else
                       - var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
-                      - var ramountParts = ramount.split('.')
                       tr
                         td 
                           a.loading(href='/address/' + r.addresses) 
                             =r.addresses
-                        td.table-danger.d-xs-none.text-right #{ramountParts[0]}.#{ramountParts[1]}
+                        td.table-danger.d-xs-none.text-right #{ramount}
                       tr.d-lg-none.d-md-none
-                          td.table-danger.text-right #{ramountParts[0]}.#{ramountParts[1]} #{settings.symbol}
+                          td.table-danger.text-right #{ramount} #{settings.symbol}
                 else
                   tr.table-info(style='text-align:center')
                     td #{settings.locale.script}
@@ -105,22 +104,20 @@ block content
                 each r in tx.vout
                   if tx.vout.length > 0 
                     - var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
-                    - var ramountParts = ramount.split('.')
                     tr.d-sm-block.d-md-none.d-none
                       td 
                         a.loading(href='/address/'+r.addresses) 
                           =r.addresses 
-                      td.success.d-none.d-sm-block.text-right  #{ramountParts[0]}.#{ramountParts[1]}
+                      td.success.d-none.d-sm-block.text-right  #{ramount}
                     tr.d-sm-block.d-md-none.d-none
-                      td.success.text-right #{ramountParts[0]}.#{ramountParts[1]} #{settings.symbol}
+                      td.success.text-right #{ramount} #{settings.symbol}
                   else
                     - var ramount = (r.amount / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
-                    - var ramountParts = ramount.split('.')
                   tr
                     td 
                       a.loading(href='/address/' + r.addresses) 
                         =r.addresses 
-                    td.table-success.d-none.d-md-block.text-right  #{ramountParts[0]}.#{ramountParts[1]}
+                    td.table-success.d-none.d-md-block.text-right  #{ramount}
                   tr.d-sm-block.d-md-none.d-none
-                    td.table-success.text-right #{ramountParts[0]}.#{ramountParts[1]} #{settings.symbol}
+                    td.table-success.text-right #{ramount} #{settings.symbol}
     .footer-padding

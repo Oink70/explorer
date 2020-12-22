@@ -62,8 +62,7 @@ block content
           var txhash = data[2]; //variables for better readability
           var outputs = data[3]; //variables for better readability
           var amount = (data[4] / 100000000); //variables for better readability
-          var amountParts = amount.toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true}).split('.');
-          var amountStr = amountParts[0] + '.' + amountParts[1];
+          var amountStr = amount.toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true});
           var day = dayjs.utc(data[5]);
           var client_tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
           var timestamp = day.tz(client_tz).format('dddd, Do MMMM YYYY, HH:mm:ss z');
