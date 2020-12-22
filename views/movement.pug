@@ -62,8 +62,8 @@ block content
           var txhash = data[2]; //variables for better readability
           var outputs = data[3]; //variables for better readability
           var amount = (data[4] / 100000000); //variables for better readability
-          var amountParts = amount.toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true}).split('.');
-          var amountStr = amountParts[0] + '.<span class="decimal">' + amountParts[1] + '</span>';
+          var amountParts = amount.toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true}).split('.');
+          var amountStr = amountParts[0] + '.' + amountParts[1];
           var timestamp = data[5]; //variables for better readability
           if (amount > '#{flagb}') {
             var total = "<label class='label label-danger'>" + amountStr + "</label>";
@@ -75,6 +75,7 @@ block content
           $("td:eq(0)", row).html(timestamp);
           $("td:eq(1)", row).html('<a href="/tx/' + txhash + '">' + txhash + '</a>');
           $("td:eq(2)", row).html(total);
+          $("td:eq(2)", row).addClass('text-right');
         }
       });
       setInterval( function () {

@@ -59,7 +59,7 @@ block content
           var blockhash = data[1]; //variables for better readability
           var txhash = data[2]; //variables for better readability
           var outputs = data[3]; //variables for better readability
-          var amount = (data[4] / 100000000).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true}); //variables for better readability
+          var amount = (data[4] / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true}); //variables for better readability
           var amountParts = amount.split('.');
           var amount = amountParts[0] + '.<span class="decimal">' + amountParts[1] + '</span>';
           var timestamp = data[5]; //variables for better readability
@@ -67,6 +67,7 @@ block content
           $("td:eq(1)", row).html('<a href="/tx/' + txhash + '">' + txhash + '</a>').addClass("d-none d-md-none d-lg-table-cell text-center");
           $("td:eq(2)", row).html(outputs).addClass("d-none d-md-none d-lg-table-cell text-center");
           $("td:eq(3)", row).html(amount);
+          $("td:eq(3)", row).addClass('text-right');
           $("td:eq(4)", row).html(timestamp);          
         },
       });
