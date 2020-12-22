@@ -51,6 +51,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// x-powered-by header
+if (settings.show_powered_by != true) {
+  app.disable('x-powered-by');
+}
+
 // routes
 app.use('/api', bitcoinapi.app);
 app.use('/', routes);

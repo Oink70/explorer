@@ -34,6 +34,9 @@
   // port to listen for requests on.
   "port" : 3001,
 
+  // x-powered-by header
+  "show_powered_by": false,
+
   // database settings (MongoDB)
   "dbsettings": {
     "user": "iquidus",
