@@ -27,15 +27,10 @@ html
     script(src='/vendor/jqplot/plugins/jqplot.pieRenderer.min.js')
     script(src='/vendor/jqplot/plugins/jqplot.barRenderer.min.js')
     script(src='/vendor/jqplot/plugins/jqplot.categoryAxisRenderer.min.js')
+    script(src='/javascripts/day.js')
     script(src='/javascripts/chart.js')
     script.
       $(document).ready(function(){
-        // load dayjs plugins
-        dayjs.extend(window.dayjs_plugin_utc);
-        dayjs.extend(window.dayjs_plugin_timezone);
-        dayjs.extend(window.dayjs_plugin_customParseFormat);
-        dayjs.extend(window.dayjs_plugin_advancedFormat);
-
         $('##{active}').addClass('active');
         function update_stats(){
           $.ajax({url: '/ext/summary', success: function(json){
