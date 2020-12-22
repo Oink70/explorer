@@ -1,7 +1,15 @@
 extends layout
 
 block content
-  - var time = format_unixtime(block.time)
+  script.
+    $(document).ready(function(){
+      var blocktime = $("#blocktime").text();
+      var day = dayjs.utc(blocktime);
+      var client_tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      var timestamp = day.tz(client_tz).format('dddd, Do MMMM YYYY, HH:mm:ss z').toString();
+      $("#blocktime").text(timestamp); 
+    });
+  - var time = format_unixtime_proper(block.time)
   - var block_difficulty = parseFloat(block.difficulty).toFixed(4)
   .col-xs-12.col-md-12
     .card.card-default

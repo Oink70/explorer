@@ -12,6 +12,14 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     script(src='/javascripts.local/jquery-1.11.0.min.js')
     script(src='/javascripts.local/bootstrap.bundle-4.5.0.min.js')
+    script(src='/javascripts.local/dayjs/dayjs-1.9.7.min.js')
+    script(src='/javascripts.local/dayjs/dayjs-utc-1.9.7.min.js')
+    script(src='/javascripts.local/dayjs/dayjs-timezone-1.9.7.min.js')
+    script(src='/javascripts.local/dayjs/dayjs-customParseFormat-1.9.7.min.js')
+    script(src='/javascripts.local/dayjs/dayjs-advancedFormat-1.9.7.min.js')
+    script(src='/javascripts.local/jquery.dataTables-1.10.9.min.js')
+    script(src='/javascripts.local/dataTables.responsive-1.0.1.js')
+    script(src='/javascripts.local/dataTables.bootstrap4-1.10.19.min.js')
     script(src='/vendor/jqplot/jquery.jqplot.min.js')
     script(src='/vendor/jqplot/plugins/jqplot.dateAxisRenderer.min.js')
     script(src='/vendor/jqplot/plugins/jqplot.ohlcRenderer.min.js')
@@ -19,13 +27,15 @@ html
     script(src='/vendor/jqplot/plugins/jqplot.pieRenderer.min.js')
     script(src='/vendor/jqplot/plugins/jqplot.barRenderer.min.js')
     script(src='/vendor/jqplot/plugins/jqplot.categoryAxisRenderer.min.js')
-    script(src='/javascripts.local/moment-2.9.0-min.js')
-    script(src='/javascripts.local/jquery.dataTables-1.10.9.min.js')
-    script(src='/javascripts.local/dataTables.responsive-1.0.1.js')
-    script(src='/javascripts.local/dataTables.bootstrap4-1.10.19.min.js')
     script(src='/javascripts/chart.js')
     script.
       $(document).ready(function(){
+        // load dayjs plugins
+        dayjs.extend(window.dayjs_plugin_utc);
+        dayjs.extend(window.dayjs_plugin_timezone);
+        dayjs.extend(window.dayjs_plugin_customParseFormat);
+        dayjs.extend(window.dayjs_plugin_advancedFormat);
+
         $('##{active}').addClass('active');
         function update_stats(){
           $.ajax({url: '/ext/summary', success: function(json){
@@ -98,6 +108,17 @@ html
       if sec < 10
         - sec = '0' + sec
       - var time = date + suffix + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
+      - return time
+    -  };
+    - function format_unixtime_proper(unixtime){
+      - var a = new Date(unixtime*1000);
+      - var year = a.getFullYear();
+      - var month = a.getMonth()+1;
+      - var day = a.getDate();
+      - var hour = a.getHours();
+      - var min = a.getMinutes();
+      - var sec = a.getSeconds();
+      - var time = year + '-' + month + '-' + day + ' ' + hour + ':' + min + ':' + sec; 
       - return time
     -  };
     - var navbarClasses = ['nav','navbar','navbar-expand-lg','fixed-top'];
