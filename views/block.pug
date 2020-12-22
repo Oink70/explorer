@@ -50,7 +50,7 @@ block content
               td.d-none.d-sm-table-cell.d-table-cell=block_size.toFixed(2)
               td.d-none.d-sm-table-cell.d-table-cell=block.bits
               td.d-none.d-sm-table-cell.d-table-cell=block.nonce
-              td.d-none.d-sm-table-cell.d-table-cell=time
+              td.d-none.d-sm-table-cell.d-table-cell#blocktime=time
           else
             if block.confirmations < (confirmations / 2)
               tr.table-danger
@@ -63,7 +63,7 @@ block content
                 td.d-none.d-sm-table-cell.d-table-cell=block_size.toFixed(2)
                 td.d-none.d-sm-table-cell.d-table-cell=block.bits
                 td.d-none.d-sm-table-cell.d-table-cell=block.nonce
-                td.d-none.d-sm-table-cell.d-table-cell=time
+                td.d-none.d-sm-table-cell.d-table-cell#blocktime=time
             else
               tr.table-warning
                 - var block_size = block.size/1024
@@ -75,7 +75,7 @@ block content
                 td.d-none.d-sm-cell.d-table-cell=block_size.toFixed(2)
                 td.d-none.d-sm-table-cell.d-table-cell=block.bits
                 td.d-none.d-sm-table-cell.d-table-cell=block.nonce
-                td.d-none.d-sm-table-cell.d-table-cell=time
+                td.d-none.d-sm-table-cell.d-table-cell#blocktime=time
 
     if block.hash == settings.genesis_block
       .alert.alert-info(role='alert', style='text-align:center;')   
