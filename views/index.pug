@@ -60,8 +60,6 @@ block content
           var txhash = data[2]; //variables for better readability
           var outputs = data[3]; //variables for better readability
           var amount = (data[4] / 100000000).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true}); //variables for better readability
-          var amountParts = amount.split('.');
-          var amount = amountParts[0] + '.<span class="decimal">' + amountParts[1] + '</span>';
           var day = dayjs.utc(data[5]);
           var client_tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
           var timestamp = day.tz(client_tz).format('dddd, Do MMMM YYYY, HH:mm:ss z');
