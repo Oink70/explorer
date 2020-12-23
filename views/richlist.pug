@@ -65,28 +65,28 @@ block content
                 th
                   div.pull-left(style='background-color:#d9534f;width:20px;height:20px;margin-right:6px;')
                   span #{settings.locale.rl_top25}
-                - var total = parseFloat(dista.total).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+                - var total = parseFloat(dista.total).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
                 td #{total}
                 td.text-center #{parseFloat(dista.percent).toFixed(2)}
               tr
                 th
                   div.pull-left(style='background-color:#5cb85c;width:20px;height:20px;margin-right:6px;')
                   span #{settings.locale.rl_top50}
-                - var total = parseFloat(distb.total).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+                - var total = parseFloat(distb.total).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
                 td #{total}
                 td.text-center #{parseFloat(distb.percent).toFixed(2)}
               tr
                 th
                   div.pull-left(style='background-color:#428bca;width:20px;height:20px;margin-right:6px;')
                   span #{settings.locale.rl_top75}
-                - var total = parseFloat(distc.total).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+                - var total = parseFloat(distc.total).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
                 td #{total}
                 td.text-center #{parseFloat(distc.percent).toFixed(2)}
               tr
                 th
                   div.pull-left(style='background-color:#222;width:20px;height:20px;margin-right:6px;')
                   span #{settings.locale.rl_top100}
-                - var total = parseFloat(distd.total).toLocaleString('en',{'minimumFractionDigits':2,'maximumFractionDigits':8,'useGrouping':true})
+                - var total = parseFloat(distd.total).toLocaleString('en',{'minimumFractionDigits':8,'maximumFractionDigits':8,'useGrouping':true})
                 td #{total}
                 td.text-center #{parseFloat(distd.percent).toFixed(2)}
               tr
